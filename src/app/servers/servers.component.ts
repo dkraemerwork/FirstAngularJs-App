@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   // selector: '[app-servers]',
@@ -14,6 +14,7 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No Server was created';
   serverName = '';
   serverCreated = false;
+  servers = ['TestServer', 'Testserver 2'];
 
   constructor() {
     setTimeout(() => {
@@ -24,9 +25,11 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
 
-  onCreateStatus() {
-    this.serverCreationStatus = 'A Server was created! Name is: ' + this.serverName;
+  onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
+    this.serverCreationStatus = 'A Server was created! Name is: ' + this.serverName;
+
   }
 
   setServerName(event: Event) {
